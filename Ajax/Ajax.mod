@@ -19,7 +19,8 @@ ProduitData produit[Produits] = ...;
 
  float quantiteMax[Produits,Semaines] = ...;
  
- dvar int+ production[Produits,Semaines];
+ 
+
  dvar int+ ventes[Produits,Semaines];
  
  dexpr int coutStockage = sum (p in Produits, t in Semaines) produit[p].coutStockage * (production[p,t] - ventes[p,t] + produit[p].quantiteInitiale);

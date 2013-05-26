@@ -6,17 +6,19 @@
 
  nbSemaines = 4;
  
- Produits = {"alpha","beta","gamma"};
+ Produits = {"alpha","beta","gamma","delta"};
  
  produit = #[
  	alpha: <350,9,10,22>
  	beta: <470,10,15,42>
  	gamma: <610,18,20,36>
+ 	delta: <910,20,22,0>
  ]#;
   
  quantiteMax = [
  	[60,80,120,140],
  	[40,40,40,40],
- 	[50,40,30,70]
+ 	[50,40,30,70],
+ 	[60,50,40,40]
  ];
  
