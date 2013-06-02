@@ -17,17 +17,16 @@ tuple ProduitData {
 
 ProduitData produit[Produits] = ...;
 
- float quantiteMax[Produits,Semaines] = ...;
- 
- 
+float quantiteMax[Produits,Semaines] = ...;
 
- dvar int+ ventes[Produits,Semaines];
+dvar int+ production[Produits,Semaines];
+dvar int+ ventes[Produits,Semaines];
  
- dexpr int coutStockage = sum (p in Produits, t in Semaines) produit[p].coutStockage * (production[p,t] - ventes[p,t] + produit[p].quantiteInitiale);
- dexpr int chiffreAffaire = sum (p in Produits, t in Semaines) (produit[p].price * ventes[p,t]);
+dexpr int coutStockage = sum (p in Produits, t in Semaines) produit[p].coutStockage * (production[p,t] - ventes[p,t] + produit[p].quantiteInitiale);
+dexpr int chiffreAffaire = sum (p in Produits, t in Semaines) (produit[p].price * ventes[p,t]);
  
- maximize chiffreAffaire - coutStockage;
- subject to {
+maximize chiffreAffaire - coutStockage;
+subject to {
 
   	 forall (t in Semaines){
   	   	sum (p in Produits) (production[p,t] * produit[p].tempsDeTravail) <= 2000;

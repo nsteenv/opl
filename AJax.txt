@@ -1,13 +1,10 @@
 Variables:
-	- XAt € R+ - quantité vendue Alpha (en unités de produit) de la semaine t (t = 1..4)
-	- XBt € R+ - quantité vendue Béta (en unités de produit) de la semaine t (t = 1..4)
-	- XGt € R+ - quantité vendue Gamma (en unités de produit) de la semaine t (t = 1..4)
-	- PAt € R+ - quantité produite de Alpha (en unités de produit) de la semaine t (t = 1..4)
-	- PBt € R+ - quantité produite de produit Béta (en unités de produit) de la semaine t (t = 1..4)
-	- PGt € R+ - quantité produite de produit Gamma (en unités de produit) de la semaine t (t = 1..4)
-	- SAt € R+ - quantité stockée de produit Alpha (en unités de produit) a la fin de la semaine t (t= 0..4)
-	- SBt € R+ - quantité stockée de produit Beta (en unités de produit) a la fin de la semaine t (t= 0..4)
-	- SGt € R+ - quantité stockée de produit Gamma (en unités de produit) a la fin de la semaine t (t= 0..4)
+	- XAt € R+ - quantité vendue Alpha (en unités de produit) a la fin de la semaine t (t = 1..4)
+	- XBt € R+ - quantité vendue Béta (en unités de produit) a la fin de la semaine t (t = 1..4)
+	- XGt € R+ - quantité vendue Gamma (en unités de produit) a la fin de la semaine t (t = 1..4)
+	- PAt € R+ - quantité produite de Alpha (en unités de produit) a la fin de la semaine t (t = 1..4)
+	- PBt € R+ - quantité produite de Béta (en unités de produit) a la fin de la semaine t (t = 1..4)
+	- PGt € R+ - quantité produite de Gamma (en unités de produit) a la fin de la semaine t (t = 1..4)
 
 Objectif: maximiser E (350XAt  + 470XBt + 610XGt) - 9SAt - 10SBt - 18SGt
 
