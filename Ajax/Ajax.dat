@@ -6,19 +6,31 @@
 
  nbSemaines = 4;
  
- Produits = {"alpha","beta","gamma","delta"};
+ tempsDeTravailMaxParSemaine = 2000;
  
+ Produits = {"alpha","beta","gamma"};
  produit = #[
  	alpha: <350,9,10,22>
  	beta: <470,10,15,42>
  	gamma: <610,18,20,36>
- 	delta: <910,20,22,0>
  ]#;
+ 
+ Lignes = {"A","C"};
+ ligne = #[
+ 	A: <120,2016,32>
+ 	C: <48,1200,38.5>
+ ]#;
+ 
+ produitsAssocies = #[
+ 	A: {"alpha","beta"}
+ 	C: {"gamma"}
+ ]#; 
   
  quantiteMax = [
  	[60,80,120,140],
  	[40,40,40,40],
  	[50,40,30,70],
- 	[60,50,40,40]
  ];
+ 
+
  
