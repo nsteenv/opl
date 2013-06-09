@@ -32,6 +32,7 @@ float quantiteMax[Produits,Semaines] = ...;
 dvar int+ production[Produits,Semaines];
 dvar int+ ventes[Produits,Semaines];
 dvar boolean ligneUtilisee[Lignes,Semaines];
+dvar boolean ligneAUtilisee[Semaines];
  
 dexpr float coutStockage = sum (p in Produits, t in Semaines) produit[p].coutStockageUnitaire * (production[p,t] - ventes[p,t] + produit[p].quantiteInitiale);
 dexpr float chiffreAffaire = sum (p in Produits, t in Semaines) produit[p].prixUnitaire * ventes[p,t];
@@ -42,21 +43,26 @@ subject to {
   	 forall (t in Semaines){
   	   	ctTempsTravail : 
   	   		sum (p in Produits) (production[p,t] * produit[p].tempsDeTravail) <= tempsDeTravailMaxParSemaine;
+  	   		
+  	   	sum (p in produitsAssocies["A"]) production[p,t] <= ligne["A"].tempsdeTestMaxParSemaine - 20 * ligneAUtilisee[t];
+	     
+	    (production["alpha"][t] >= 1 && production["beta"][t] >= 1) == ligneAUtilisee[t];
+  	   		
       }  	   		
   	  
   	  forall (t in Semaines, l in Lignes){ 	
   	    ctTempsTest:
   	    	sum (p in produitsAssocies[l]) production[p,t] <= ligne[l].tempsdeTestMaxParSemaine;
   	    	
-	     forall (p in produitsAssocies[l]) {
-	       		(production[p,t] >= 1) == ligneUtilisee[l][t];
-	     }
+	     (sum (p in produitsAssocies[l]) production[p,t] >= 1) == ligneUtilisee[l][t];
 	     
 	  forall (t in Semaines, p in Produits){
 	    	ventes[p,t] >= 20;
 	     	ventes[p,t] <= quantiteMax[p,t]; 
 	      	ventes[p,t] <= production[p,t] + (produit[p].quantiteInitiale + sum (s in Semaines : s < t) ( production[p,s] - ventes[p,s] ));
-   		}	                  
+   		}	  
+   		
+   	                
     }	  
  };
  
